@@ -3,46 +3,52 @@ import { useState } from 'react'
 
 function App() {
 
-  // const [search, setSearch] = useState(null)
+  const [search, setSearch] = useState(null)
   const [content, setContent] = useState(null)
 
-  function getGifs() {
+  function handleSearch(e) {
+    const newSearch = e.target.value
+    setSearch(newSearch)
+  }
+
+  function getGifs(search) {
     console.log("Loadin")
   // const API_KEY = "9ZOiJat5aZTQ7SUUpyF1zQWvlmp4lZn7"
   // const URL = "api.giphy.com/v1/gifs/trending"
 
-  fetch('https://api.giphy.com/v1/gifs/translate?api_key=9ZOiJat5aZTQ7SUUpyF1zQWvlmp4lZn7&s=jojo', {mode: 'cors'})
+  fetch('https://api.giphy.com/v1/gifs/search?api_key=9ZOiJat5aZTQ7SUUpyF1zQWvlmp4lZn7&q=' + search + "&limit=6" , {mode: 'cors'})
   .then(function(response) {
       return response.json();
   })
   .then(function(response) {
       console.log(response)
-      const imageUrl = response.data.images.downsized.url
-      console.log(imageUrl)
-      return imageUrl
+      const data = response.data
+      console.log(data)
+      const gifData = data.map( ( item ) => {
+        const url = item.images.downsized.url
+        const id = item.id
+        return {url, id}
+      })
+      return gifData
+      
   })
-  .then(function (imageUrl) {
-    setContent(imageUrl)
-  })
-
-
-  
-  
+  .then(function(gifData){
+    console.log("Done")
+    setContent(gifData)})  
 }
 
-// function handleClick () {
-//   const newData = getGifs()
-//   console.log(newData.result)
-//   setContent(newData)
-// }
+
 
 return (
   <>
   <h1>Click Me</h1>
-  <button onClick={() => getGifs()}>Here, click here please</button>
+  <button onClick={() => getGifs(search)}>Here, click here please</button>
+  <input type="text" name="search" id="search-input" onChange={(e) => handleSearch(e)} />
   {
     content ? (
-      <img src={content} alt="a gif" />
+      content.map( ( item ) => {
+        return(<img src={item.url} key={item.id} alt="A gif" />)
+      })
     ) : (
       <p>Sorry, no content yet</p>
     )
