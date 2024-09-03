@@ -1,15 +1,11 @@
 import { useState } from 'react'
+import { InputGroup } from './InputGroup'
+import { Content } from './Content'
 
 
 function App() {
 
-  const [search, setSearch] = useState(null)
   const [content, setContent] = useState(null)
-
-  function handleSearch(e) {
-    const newSearch = e.target.value
-    setSearch(newSearch)
-  }
 
   function getGifs(search) {
     console.log("Loadin")
@@ -33,6 +29,7 @@ function App() {
       
   })
   .then(function(gifData){
+    console.log(gifData)
     console.log("Done")
     setContent(gifData)})  
 }
@@ -41,18 +38,10 @@ function App() {
 
 return (
   <>
-  <h1>Click Me</h1>
-  <button onClick={() => getGifs(search)}>Here, click here please</button>
-  <input type="text" name="search" id="search-input" onChange={(e) => handleSearch(e)} />
-  {
-    content ? (
-      content.map( ( item ) => {
-        return(<img src={item.url} key={item.id} alt="A gif" />)
-      })
-    ) : (
-      <p>Sorry, no content yet</p>
-    )
-  }
+  <h1>Gif finder</h1>
+  <InputGroup onSearch={getGifs} />
+  <Content content={content} />
+  
   </>
 
 )
