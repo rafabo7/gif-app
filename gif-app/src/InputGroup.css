@@ -1,0 +1,44 @@
+.search-section {
+    display: flex;
+    flex-direction: column;
+    max-width: 260px;
+    gap: 14px;
+    margin: 0 auto;
+}
+
+.search-section input {
+    border: unset;
+    font-size: 1.2rem;
+    background-color: rgb(71, 71, 71);
+    color: whitesmoke;
+    text-align: center;
+    padding: 8px 14px;
+    border-radius: 20px;
+}
+
+.search-section input:focus {
+    opacity: .9;
+    outline: unset;
+}
+
+.search-section button {
+    border: unset;
+    font-size: 1.2rem;
+    background-color: rgb(138, 138, 138);
+    color: whitesmoke;
+    text-align: center;
+    padding: 8px 14px;
+    border-radius: 20px;
+}
+
+.search-section button:hover {
+    opacity: .8;
+    outline: unset;
+
+}
+.search-section button:focus {
+    opacity: .8;
+    outline: unset;
+
+}
+

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './InputGroup.css'
 
  export function InputGroup ({onSearch}) {
   
@@ -12,8 +13,8 @@ import { useState } from "react"
 
     return (
         <section className="search-section">
-            <button onClick={() => onSearch(search)}>Here, click here please</button>
             <input type="text" name="search" id="search-input" onChange={(e) => handleSearch(e)} />
+            <button onClick={() => onSearch(search)}>Search</button>
         </section>
 
     )
