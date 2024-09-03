@@ -1,0 +1,19 @@
+.content-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 80px;
+    gap: 24px;
+
+    
+}
+
+.content-grid .img-container {
+    width: 30%;
+}
+
+.content-grid .gif {
+    max-width: 90%;
+}
