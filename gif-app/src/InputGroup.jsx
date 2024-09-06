@@ -10,12 +10,17 @@ import './InputGroup.css'
     setSearch(newSearch)
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    onSearch(search)
+  }
+
 
     return (
-        <section className="search-section">
-            <input type="text" name="search" id="search-input" onChange={(e) => handleSearch(e)} />
-            <button onClick={() => onSearch(search)}>Search</button>
-        </section>
+        <form action="#" onSubmit={(e) => handleSubmit(e)}>
+          <input type="text" name="search" id="search-input" onChange={(e) => handleSearch(e)} />
+          <button>Search</button>
+        </form>
 
     )
 }
