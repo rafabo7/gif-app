@@ -17,7 +17,7 @@ import './InputGroup.css'
 
 
     return (
-        <form action="#" onSubmit={(e) => handleSubmit(e)}>
+        <form className="form" action="#" onSubmit={(e) => handleSubmit(e)}>
           <input type="text" name="search" id="search-input" onChange={(e) => handleSearch(e)} />
           <button>Search</button>
         </form>
