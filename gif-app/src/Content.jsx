@@ -8,9 +8,11 @@ export function Content ({ content }) {
                 content ?
                 content.map( ( item ) => {
                     return(
-                    <article key={item.id} className="img-container">
-                        <img className="gif" src={item.url}  alt="A gif" />
-                    </article>
+                    
+                        <div key={item.id}>
+                            <img className="gif" src={item.url}  alt="A gif" />
+                            </div>
+                    
                     )}) : null
             }
         </section>
