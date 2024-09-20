@@ -1,9 +1,8 @@
 import { useState } from "react"
 import '../Styles/InputGroup.css'
 
- export function InputGroup ({onSearch}) {
+ export function InputGroup ({onSearch, search, setSearch}) {
   
-    const [search, setSearch] = useState(null)
 
   function handleSearch(e) {
     const newSearch = e.target.value
