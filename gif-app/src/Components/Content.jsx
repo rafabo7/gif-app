@@ -1,4 +1,4 @@
-import "./Content.css"
+import "../Styles/Content.css"
 
 export function Content ({ content }) {
 

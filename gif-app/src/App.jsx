@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { InputGroup } from './InputGroup'
-import { Content } from './Content'
+import { InputGroup } from './Components/InputGroup'
+import { Content } from './Components/Content'
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   // const API_KEY = "9ZOiJat5aZTQ7SUUpyF1zQWvlmp4lZn7"
   // const URL = "api.giphy.com/v1/gifs/trending"
 
-  fetch('https://api.giphy.com/v1/gifs/search?api_key=9ZOiJat5aZTQ7SUUpyF1zQWvlmp4lZn7&q=' + search + "&limit=6" , {mode: 'cors'})
+  fetch('https://api.giphy.com/v1/gifs/search?api_key=9ZOiJat5aZTQ7SUUpyF1zQWvlmp4lZn7&q=' + search + "&limit=12" , {mode: 'cors'})
   .then(function(response) {
       return response.json();
   })

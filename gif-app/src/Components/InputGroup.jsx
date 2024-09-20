@@ -1,5 +1,5 @@
 import { useState } from "react"
-import './InputGroup.css'
+import '../Styles/InputGroup.css'
 
  export function InputGroup ({onSearch}) {
   
